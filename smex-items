@@ -1,0 +1,36 @@
+
+;; ----- smex-history -----
+(
+ package-install
+ load-theme
+ git-blame-mode
+ shell
+ flycheck-mode
+ python-mode
+ strokes-help
+)
+
+;; ----- smex-data -----
+(
+ (helm-locate . 1)
+ (list-packages . 1)
+ (python-mode . 3)
+ (inferior-python-mode . 1)
+ (company-ropemacs . 2)
+ (strokes-help . 2)
+ (shell . 5)
+ (neotree-hidden-file-toggle . 1)
+ (eshell . 1)
+ (er-refresh-etags . 1)
+ (helm-find . 1)
+ (load-theme . 24)
+ (whitespace-mode . 2)
+ (package-install . 6)
+ (package-menu-refresh . 1)
+ (flycheck-mode . 2)
+ (neotree-create-node . 4)
+ (flycheck-select-checker . 2)
+ (flycheck-set-checker-executable . 1)
+ (git-blame-mode . 2)
+ (neotree-rename-node . 3)
+)

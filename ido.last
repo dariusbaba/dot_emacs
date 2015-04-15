@@ -1,0 +1,70 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/adrian/Work/superdesk/client/app/scripts/" . "bower_components/")
+ ("/Users/adrian/Work/" . "coffee-elixir/")
+ ("/Users/adrian/Work/coffee-elixir/web/" . "controllers/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+
+)
+
+;; ----- ido-work-file-list -----
+(
+
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/adrian/Work/superdesk/server/" (21804 31263 0 0) "wsgi.py" "ws.py" "worker.py" "superdesk/" "setup.cfg" "settings.py" "scripts/" "requirements.txt" "README.md" "Procfile" "manage.py" "macros/" "LICENSE.txt" "gunicorn_config.py" "fig.yml" "features/" "Dockerfile" "CHANGES.txt" "celerybeatschedule.db.db" "AUTHORS.md" "apps/" "app.py" "__pycache__/" ".travis.yml" ".ropeproject/" ".dockerignore" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/server/superdesk/" (21799 47365 0 0) "workflow_test.py" "workflow.py" "validator.py" "utils.py" "utc_tests.py" "utc.py" "upload.py" "tests.py" "templates/" "storage/" "stats.py" "signals.py" "services.py" "resource.py" "privilege_test.py" "privilege.py" "notification_mock.py" "notification.py" "media/" "macro_register_tests.py" "macro_register.py" "json_path_tool.py" "io/" "eve_backend.py" "etree.py" "errors_test.py" "errors.py" "emails/" "datalayer_tests.py" "datalayer.py" "comments/" "commands/" "celery_tests.py" "celery_app.py" "backend_test.py" "activity.py" "aap_mm_datalayer.py" "__pycache__/" "__init__.pyc" "__init__.py" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/server/superdesk/io/" (21799 47365 0 0) "zczc_parser_test.py" "zczc.py" "wenn_parser_test.py" "wenn_parser.py" "tests.py" "teletype.py" "subjectcodes.py" "rss_test.py" "rss.py" "rfc822_parser_test.py" "rfc822.py" "reuters_token.py" "reuters_tests.py" "reuters_mock.py" "reuters.py" "nitf_tests.py" "nitf.py" "newsml_2_0.py" "newsml_1_2.py" "iptc7901_tests.py" "iptc7901.py" "iptc.py" "io_tests.py" "ingest_service.py" "ingest_provider_model.py" "ingest_errors.py" "ftp_tests.py" "ftp.py" "fixtures/" "file_ingest_service.py" "email.py" "dpa.py" "data/" "commands/" "anpa_tests.py" "anpa.py" "afp_tests.py" "afp.py" "aap.py" "__pycache__/" "__init__.py" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/server/superdesk/io/commands/" (21799 47365 0 0) "update_ingest_tests.py" "update_ingest.py" "remove_expired_content.py" "add_provider.py" "__pycache__/" "__init__.py" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/" (21803 9792 0 0) "TAGS" "setup.py" "server/" "scripts/" "README.md" "LICENSE" "docker/" "client/" "bower.json" ".travis.yml" ".ropeproject/" ".gitignore" ".git/" ".bowerrc" "../" "./")
+
+ ("/Users/adrian/Work/happens360/web/views/" (21797 9662 0 0) "page_view.ex" "layout_view.ex" "event_view.ex" "error_view.ex" "auth_view.ex" "../" "./")
+
+ ("/Users/adrian/Work/happens360/web/templates/" (21797 9662 0 0) "page/" "layout/" "event/" "auth/" "../" "./")
+
+ ("/Users/adrian/Work/happens360/web/controllers/" (21803 6409 0 0) "page_controller.ex" "auth_controller.ex" "api_events_controller.ex" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/client/app/scripts/superdesk-users/" (21797 47233 0 0) "views/" "users.js" "tests/" "styles/" "profile.js" "import/" "directives_spec.js" "activity/" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/client/app/scripts/" (21796 36901 0 0) "translations.js" "TAGS" "superdesk-workspace/" "superdesk-users/" "superdesk-stream/" "superdesk-settings/" "superdesk-search/" "superdesk-scratchpad/" "superdesk-planning/" "superdesk-packaging/" "superdesk-items-common/" "superdesk-ingest/" "superdesk-highlights/" "superdesk-groups/" "superdesk-dictionaries/" "superdesk-desks/" "superdesk-dashboard/" "superdesk-authoring/" "superdesk-archive/" "superdesk/" "main.js" "gettext.js" "config.js" "bower_components/" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/client/app/scripts/superdesk-authoring/" (21796 37496 0 0) "workqueue/" "widgets/" "views/" "versioning/" "tests/" "styles/" "packages/" "multiedit/" "metadata/" "macros/" "editor/" "comments/" "authoring.js" ".#authoring.js" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/client/" (21796 34361 0 0) "Vagrantfile" "test-main.js" "tasks/" "TAGS" "superdesk_vhost.conf" "spec/" "scripts/" "run.sh.save" "report/" "README.md" "protractor-conf.js" "package.json" "node_modules/" "LICENSE.txt" "karma.conf.js" "Gruntfile.js" "e2e-test-results/" "docs/" "Dockerfile-dev" "Dockerfile" "dist/" "CONTRIBUTING.md" "CHANGELOG.md" "bower.json" "bower/" "AUTHORS.md" "app/" ".travis.yml" ".tmp/" ".jshintrc" ".jscs.json" ".gitignore" ".dockerignore" ".bowerrc" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/client/app/" (21795 4251 0 0) "styles/" "scripts/" "robots.txt" "index.html" "images/" "favicon.ico" "docs.html" "docs/" "404.html" ".htaccess" ".buildignore" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/client/app/scripts/bower_components/" (21766 18884 0 0) "requirejs/" "raven-js/" "ng-file-upload/" "momentjs/" "moment-timezone/" "moment/" "ment.io/" "medium-editor/" "lodash/" "jquery-ui/" "jquery/" "jcrop/" "gridster/" "d3/" "bootstrap/" "angular-route/" "angular-resource/" "angular-mocks/" "angular-gettext/" "angular-bootstrap/" "angular/" "../" "./")
+
+ ("/Users/adrian/Work/coffee-elixir/web/models/" (21791 57394 0 0) "user.ex" "repo.ex" "event.ex" "../" "./")
+
+ ("/Users/adrian/Work/coffee-elixir/lib/" (21762 19274 0 0) "coffee_elixir.ex" "coffee_elixir/" "../" "./")
+
+ ("/Users/adrian/Work/coffee-elixir/" (21791 49330 0 0) "web/" "test/" "TAGS" "README.md" "priv/" "mix.lock" "mix.exs" "lib/" "deps/" "config/" "_build/" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/adrian/Work/coffee-elixir/web/" (21791 29009 0 0) "web.ex" "views/" "templates/" "router.ex" "models/" "controllers/" "../" "./")
+
+ ("/Users/adrian/Work/elixir-mongo/lib/" (21791 34454 0 0) "TAGS" "mongo_server.ex" "mongo_response.ex" "mongo_request.ex" "mongo_helpers.ex" "mongo_find.ex" "mongo_db.ex" "mongo_cursor.ex" "mongo_collection.ex" "mongo.ex" "../" "./")
+
+ ("/Users/adrian/Work/" (21791 19725 0 0) "superdesk/" "sd-test-restart-help" "prog_elixir/" "phoenix_chat_example/" "iTerm2-Color-Schemes/" "eve-elastic/" "eve/" "elixir-mongo/" "elixir/" "e2e-env.sh" "dotfiles/" "dot_emacs/" "coffee-elixir/" "android-coffee/" "../" "./")
+
+ ("/Users/adrian/Work/elixir-mongo/" (21791 31159 0 0) "VERSION" "test/" "README.md" "mix.lock" "mix.exs" "LICENSE" "lib/" "deps/" "CHANGELOG.md" "_build/" ".travis.yml" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/server/apps/" (21790 40109 0 0) "vocabularies/" "users/" "tasks_tests.py" "tasks.py" "stages.py" "spikes.py" "search/" "rules/" "publish/" "privilege.py" "prepopulate/" "preferences.py" "planning.py" "macros.py" "legal_archive/" "item_lock/" "item_autosave/" "highlights/" "groups.py" "duplication/" "dictionaries/" "desks.py" "coverages.py" "content.py" "common/" "auth/" "archive/" "apps_tests.py" "__pycache__/" "__init__.py" "../" "./")
+
+ ("/Users/adrian/Work/coffee-elixir/web/controllers/" (21770 52411 0 0) "users-controller.ex" "page_controller.ex" "events-controller.ex" "auth_controller.ex" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
