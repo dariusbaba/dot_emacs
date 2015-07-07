@@ -110,6 +110,45 @@
   (set-buffer-modified-p t))
 
 ;; =============================================================================
+;; Python
+
+;; Python editing
+(require 'yasnippet)
+
+;; flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+(global-flycheck-mode t)
+
+;; ;; Python mode settings
+(require 'python-mode)
+(add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
+(setq py-electric-colon-active t)
+(add-hook 'python-mode-hook 'yas-minor-mode)
+
+;; ;; Jedi settings
+(require 'jedi)
+;; It's also required to run "pip install --user jedi" and "pip
+;; install --user epc" to get the Python side of the library work
+;; correctly.
+;; With the same interpreter you're using.
+
+;; if you need to change your python intepreter, if you want to change it
+;; (setq jedi:server-command
+;;       '("python2" "/home/andrea/.emacs.d/elpa/jedi-0.1.2/jediepcserver.py"))
+
+(add-hook 'python-mode-hook
+	  (lambda ()
+	    (jedi:setup)
+	    (jedi:ac-setup)
+            (local-set-key (kbd "M-'") 'jedi:show-doc)
+            (local-set-key (kbd "M-SPC") 'jedi:complete)
+            (local-set-key (kbd "M-.") 'jedi:goto-definition)))
+
+;; =============================================================================
+
+
+;; =============================================================================
 ;; Evil
 ;; =============================================================================
 (require 'evil)
@@ -171,12 +210,17 @@
   "w"  'kill-buffer
   "nn" 'neotree-toggle
   "nf" 'neotree-find
+  "ni" 'neotree-hidden-file-toggle
   "gk" 'windmove-up
   "gj" 'windmove-down
   "gl" 'windmove-right
   "gh" 'windmove-left
   "vs" 'split-window-right
   "hs" 'split-window-below
+  "m" 'jedi:show-doc
+  "SPC" 'jedi:complete
+  "'" 'jedi:goto-definition
+  "s" 'save-some-buffers
   "x" 'smex)
 
 ;; =============================================================================
@@ -345,7 +389,7 @@ Repeated invocations toggle between the two most recently open buffers."
 (set-face-background hl-line-face "gray10")
 
 ;; Make lines longer than 80 highlighted
-(setq whitespace-line-column 80) ;; limit line length
+(setq whitespace-line-column 120) ;; limit line length
 (setq whitespace-style '(face lines-tail))
 (global-whitespace-mode t)
 
@@ -437,8 +481,8 @@ Repeated invocations toggle between the two most recently open buffers."
 ;; Custom Packages
 ;; =============================================================================
 
-(load "~/.emacs.d/vendor/ujelly-theme/ujelly-theme.el")
-(load-theme 'ujelly)
+;; (load "~/.emacs.d/vendor/ujelly-theme/ujelly-theme.el")
+(load-theme 'atom-dark)
 
 ; (let ((bg (face-attribute 'default :background)))
 ;   (custom-set-faces
@@ -513,6 +557,7 @@ Repeated invocations toggle between the two most recently open buffers."
 (modify-syntax-entry (string-to-char "_") "w" ruby-mode-syntax-table)
 (modify-syntax-entry (string-to-char "_") "w" elixir-mode-syntax-table)
 (modify-syntax-entry (string-to-char "_") "w" coffee-mode-syntax-table)
+(modify-syntax-entry (string-to-char "_") "w" python-mode-syntax-table)
 
 ;; JSX
 ;; (require 'web-mode)

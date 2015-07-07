@@ -1,6 +1,7 @@
 .DS_Store
 *.elc
 \#*
+.python-environments/
 bookmarks
 backup
 backup.*
@@ -14,6 +15,7 @@ ido.last
 recentf
 vendor
 .cask
+smex-items
 emms
 url
 auto-save-list
