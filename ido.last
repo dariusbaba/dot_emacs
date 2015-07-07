@@ -2,24 +2,125 @@
 
 ;; ----- ido-last-directory-list -----
 (
- ("/Users/adrian/Work/superdesk/client/app/scripts/" . "bower_components/")
+ ("/Users/adrian/Work/superdesk/server/publicapi/" . "assets/")
+ ("/Users/adrian/Work/superdesk/client/app/scripts/superdesk-legal-archive/" . "styles/")
+ ("/Users/adrian/Work/constructors_club/priv/static/" . "images/")
+ ("/Users/adrian/Work/constructors_club/priv/" . "static/")
+ ("/Users/adrian/Work/superdesk/server/apps/" . "messaging/")
+ ("/Users/adrian/Work/superdesk/" . "server/")
+ ("/Users/adrian/" . "Work/")
+ ("/Users/adrian/Work/happens360/web/" . "channels/")
+ ("/Users/adrian/Work/happens360/" . "web/")
+ ("/Users/adrian/Work/superdesk/client/app/scripts/" . "superdesk-legal-archive/")
  ("/Users/adrian/Work/" . "coffee-elixir/")
  ("/Users/adrian/Work/coffee-elixir/web/" . "controllers/")
 )
 
 ;; ----- ido-work-directory-list -----
 (
-
+ "/Users/adrian/Work/constructors_club/"
+ "/Users/adrian/Work/happens360/web/channels/"
 )
 
 ;; ----- ido-work-file-list -----
 (
-
+ "build_prod.sh"
+ "events_channel.ex"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/Users/adrian/Work/superdesk/server/" (21804 31263 0 0) "wsgi.py" "ws.py" "worker.py" "superdesk/" "setup.cfg" "settings.py" "scripts/" "requirements.txt" "README.md" "Procfile" "manage.py" "macros/" "LICENSE.txt" "gunicorn_config.py" "fig.yml" "features/" "Dockerfile" "CHANGES.txt" "celerybeatschedule.db.db" "AUTHORS.md" "apps/" "app.py" "__pycache__/" ".travis.yml" ".ropeproject/" ".dockerignore" "../" "./")
+ ("/Users/adrian/Work/constructors_club/" (21912 38602 0 0) "web/" "test/" "README.md" "prod/" "priv/" "package.json" "node_modules/" "mix.lock" "mix.exs" "lib/" "erl_crash.dump" "deps/" "config/" "brunch-config.js" "_build/" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/adrian/Work/constructors_club/web/templates/layout/" (21905 7562 0 0) "application.html.eex" "../" "./")
+
+ ("/Users/adrian/Work/constructors_club/web/models/" (21905 44869 0 0) "users.ex" "reset_password.ex" "registration_validation_token.ex" "product.ex" "orders.ex" "order_items.ex" "login.ex" "company.ex" "change_password.ex" "billing_plan.ex" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/server/publicapi/assets/" (21905 64203 0 0) "../" "./")
+
+ ("/Users/adrian/Work/superdesk/server/publicapi/" (21905 63334 0 0) "tests/" "settings.py" "prepopulate/" "packages/" "items/" "features/" "errors.py" "demo_data/" "behave_setup.py" "__pycache__/" "__init__.py" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/server/superdesk/storage/amazon/" (21899 32701 0 0) "amazon_media_storage.py" "__pycache__/" "__init__.py" ".#amazon_media_storage.py" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/client/app/scripts/superdesk-legal-archive/styles/" (21888 4043 0 0) "../" "./")
+
+ ("/Users/adrian/Work/superdesk/client/app/scripts/superdesk-legal-archive/" (21888 3635 0 0) "views/" "tests/" "legal_archive.js" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/client/app/scripts/superdesk-legal-archive/views/" (21886 11673 0 0) "../" "./")
+
+ ("/Users/adrian/Work/superdesk/client/app/scripts/" (21886 4626 0 0) "translations.js" "superdesk-workspace/" "superdesk-users/" "superdesk-templates/" "superdesk-stream/" "superdesk-settings/" "superdesk-search/" "superdesk-scratchpad/" "superdesk-publish/" "superdesk-planning/" "superdesk-packaging/" "superdesk-items-common/" "superdesk-ingest/" "superdesk-highlights/" "superdesk-groups/" "superdesk-dictionaries/" "superdesk-desks/" "superdesk-dashboard/" "superdesk-authoring/" "superdesk-archive/" "superdesk/" "main.js" "gettext.js" "config.js" "bower_components/" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/client/app/scripts/superdesk-search/" (21886 4626 0 0) "views/" "tests/" "styles/" "search.js" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/server/features/" (21862 20403 0 0) "vocabularies.feature" "validate.feature" "user_content.feature" "user.feature" "upload.feature" "text_archive.feature" "templates.feature" "tasks.feature" "subscribers.feature" "subjectcodes.feature" "steps/" "stages.feature" "spellcheck.feature" "sessions.feature" "search.feature" "saved_searches.feature" "rule_sets.feature" "routing_rules.feature" "role.feature" "published.feature" "publish_queue.feature" "privilege.feature" "prepopulate.feature" "preferences.feature" "planning.feature" "packages.feature" "output_channels.feature" "macros.feature" "legal_archive.feature" "ingest_provider.feature" "ingest_errors.feature" "ingest.feature" "highlights.feature" "groups.feature" "formatted_item.feature" "environment.py" "dictionaries.feature" "destination_groups.feature" "desks.feature" "coverage.feature" "content_view.feature" "content_spike.feature" "content_publish.feature" "content_move.feature" "content_lock.feature" "content_link.feature" "content_fetch.feature" "content_duplication.feature" "content_copy.feature" "content_autosave.feature" "comments.feature" "auto_routing.feature" "auth.feature" "archive_comments.feature" "archive.feature" "activity.feature" "aap_mm.feature" "__pycache__/" "__init__.py" "../" "./")
+
+ ("/Users/adrian/Work/constructors_club/web/templates/login/" (21864 314 0 0) "new.html.eex" "form.html.eex" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/server/apps/" (21862 41565 0 0) "vocabularies/" "validators/" "validate/" "users/" "text_archive/" "templates/" "tasks_tests.py" "tasks.py" "stages.py" "spikes.py" "spellcheck/" "search/" "rules/" "publish/" "privilege.py" "prepopulate/" "preferences_test.py" "preferences.py" "planning.py" "packages/" "messaging/" "macros.py" "legal_archive/" "item_lock/" "item_autosave/" "highlights/" "groups.py" "duplication/" "dictionaries/" "desks.py" "coverages.py" "content.py" "common/" "auth/" "archive/" "apps_tests.py" "aap_mm/" "__pycache__/" "__init__.py" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/" (21862 20403 0 0) "TAGS" "setup.py" "server/" "scripts/" "README.md" "LICENSE" "docker/" "client/" "bower.json" ".travis.yml" ".ropeproject/" ".landscape.yml" ".gitignore" ".git/" ".codeclimate.yml" ".bowerrc" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/client/" (21862 31409 0 0) "Vagrantfile" "test-main.js" "tasks/" "superdesk_vhost.conf" "spec/" "scripts/" "run.sh.save" "report/" "README.md" "protractor-conf.js" "package.json" "node_modules/" "LICENSE.txt" "karma.conf.js" "Gruntfile.js" "e2e-test-results/" "docs/" "Dockerfile-dev" "Dockerfile" "dist/" "CONTRIBUTING.md" "CHANGELOG.md" "bower.json" "bower/" "AUTHORS.md" "app/" ".travis.yml" ".tmp/" ".jshintrc" ".jscs.json" ".gitignore" ".dockerignore" ".bowerrc" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/client/app/" (21858 26193 0 0) "styles/" "scripts/" "robots.txt" "index.html" "images/" "favicon.ico" "docs.html" "docs/" "404.html" ".htaccess" ".buildignore" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/server/apps/messaging/" (21862 41581 0 0) "__init__.py" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/server/" (21862 31409 0 0) "wsgi.py" "ws.py" "worker.py" "superdesk/" "setup.cfg" "settings.py" "scripts/" "requirements.txt" "README.md" "publicapi.py" "publicapi/" "Procfile" "manage_pubapi.py" "manage.py" "macros/" "LICENSE.txt" "gunicorn_config.py" "fig.yml" "features/" "Dockerfile" "CHANGES.txt" "celerybeatschedule.db.db" "AUTHORS.md" "apps/" "app.py" "__pycache__/" ".travis.yml" ".ropeproject/" ".dockerignore" ".coveragerc" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/server/apps/legal_archive/" (21825 26098 0 0) "tasks.py" "resource.py" "models/" "datalayer.py" "components/" "__pycache__/" "__init__.py" "../" "./")
+
+ ("/Users/adrian/Work/constructors_club/web/views/" (21835 1264 0 0) "user_view.ex" "page_view.ex" "layout_view.ex" "error_view.ex" "companies_view.ex" "billing_plan_view.ex" "admin_company_view.ex" ".#companies_view.ex" "../" "./")
+
+ ("/Users/adrian/Work/constructors_club/web/controllers/" (21835 180 0 0) "page_controller.ex" "company_controller.ex" "admin_companies_controller.ex" "admin_billing_plan_controller.ex" "../" "./")
+
+ ("/Users/adrian/Work/constructors_club/priv/static/images/" (21834 7737 0 0) "../" "./")
+
+ ("/Users/adrian/Work/constructors_club/priv/static/" (21834 7737 0 0) "js/" "images/" "font/" "css/" "../" "./")
+
+ ("/Users/adrian/Work/constructors_club/web/static/" (21834 7672 0 0) "vendor/" "LICENSE" "js/" "css/" "background3.jpg" "background2.jpg" "background1.jpg" ".DS_Store" "../" "./")
+
+ ("/Users/adrian/Work/constructors_club/priv/" (21833 61257 0 0) "static/" "repo/" "../" "./")
+
+ ("/Users/adrian/Work/constructors_club/web/" (21834 4736 0 0) "web.ex" "views/" "templates/" "static/" "router.ex" "models/" "controllers/" "channels/" ".DS_Store" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/server/superdesk/commands/" (21831 3018 0 0) "rebuild_elastic_index_tests.py" "rebuild_elastic_index.py" "elastic_from_mongo.py" "clean_images.py" "__pycache__/" "__init__.py" "../" "./")
+
+ ("/Users/adrian/Work/happens360/test/controllers/" (21803 1779 0 0) "page_controller_test.exs" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/client/app/scripts/superdesk-templates/" (21825 41436 0 0) "../" "./")
+
+ ("/Users/adrian/Work/superdesk/client/app/scripts/superdesk-publish/" (21822 49996 0 0) "views/" "styles/" "publish.js" "../" "./")
+
+ ("/Users/adrian/Work/happens360/web/channels/" (21811 43400 0 0) "events_channel.ex" "../" "./")
+
+ ("/Users/adrian/" (21825 40109 0 0) "–" "Work/" "Torrents/" "Public/" "Pictures/" "Music/" "Movies/" "mount_data.sh" "manjaro-xfce-0.9.0-dev-x86_64.iso" "manjaro-xfce-0.9.0-dev-x86_64.img.dmg" "Library/" "ec2-data" "Downloads/" "Documents/" "Desktop/" "Desene/" "Data/" "BackupSDCard/" "aws-elixir2.pem" "Applications/" ".zshrc-e" ".zshrc" ".zsh_history" ".zsh-update" ".zcompdump-Adrian’s MacBook Pro-5.0.5" ".wgetrc" ".virtualenvs/" ".vimrc" ".viminfo" ".vim/" ".v8flags.3.28.73.adrian.json" ".Trash/" ".swp" ".ssh/" ".screenrc" ".rediscli_history" ".osx" ".oh-my-zsh/" ".npm/" ".node-gyp/" ".NERDTreeBookmarks" ".mongorc.js" ".mix/" ".macports/" ".local/" ".lesshst" ".jspm/" ".inputrc" ".hushlogin" ".hgignore" ".hex/" ".gradle/" ".gitignore" ".gitconfig" ".gitattributes" ".git-credential-cache/" ".gdbinit" ".functions" ".exports" ".erlang.cookie" ".emacs_bkp" ".emacs.d/" ".editorconfig" ".DS_Store" ".dbshell" ".curlrc" ".config/" ".CFUserTextEncoding" ".cache/" ".bashrc" ".bash_prompt" ".bash_profile" ".bash_history" ".atom/" ".android/" ".aliases" "#.emacs#" "../" "./")
+
+ ("/Users/adrian/Work/" (21815 44961 0 0) "superdesk/" "skeleton-navigation-0.12.0/" "sd-test-restart-help" "prog_elixir/" "phoenix_chat_example/" "phoenix/" "iTerm2-Color-Schemes/" "happens360/" "generate_ctags.sh" "eve-elastic/" "eve/" "elixir-mongo/" "elixir/" "e2e-env.sh" "dotfiles/" "dot_emacs/" "coffee-elixir/" "android-coffee/" ".DS_Store" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/server/apps/vocabularies/" (21825 30181 0 0) "vocabularies.py" "tests.py" "command.py" "__pycache__/" "__init__.py" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/client/app/scripts/superdesk-authoring/" (21813 54896 0 0) "workqueue/" "widgets/" "views/" "versioning/" "tests/" "styles/" "packages/" "multiedit/" "metadata/" "macros/" "editor/" "comments/" "authoring.js" "../" "./")
+
+ ("/Users/adrian/Work/superdesk/server/apps/publish/" (21813 34846 0 0) "subscribers.py" "publish_queue.py" "output_channels.py" "formatters/" "formatted_item.py" "destination_groups.py" "archive_publish_tests.py" "archive_publish.py" "__pycache__/" "__init__.py" "../" "./")
+
+ ("/Users/adrian/Work/happens360/web/" (21808 41740 0 0) "web.ex" "router.ex" "models/" "controllers/" "channels/" "../" "./")
+
+ ("/Users/adrian/Work/happens360/" (21808 36233 0 0) "web/" "test/" "README.md" "mix.lock" "mix.exs" "lib/" "deps/" "config/" "client/" "_build/" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/adrian/Work/happens360/web/controllers/" (21808 34873 0 0) "auth_controller.ex" "api_events_controller.ex" "../" "./")
+
+ ("/Users/adrian/Work/happens360/lib/" (21799 31635 0 0) "jsx_codex.ex" "happens360.ex" "happens360/" "connection_pool.ex" "../" "./")
+
+ ("/Users/adrian/Work/happens360/lib/happens360/" (21799 31421 0 0) "endpoint.ex" "../" "./")
+
+ ("/Users/adrian/Work/happens360/web/static/" (21807 49227 0 0) "vendor/" "js/" "html/" "css/" ".DS_Store" "../" "./")
+
+ ("/Users/adrian/Work/happens360/priv/" (21797 10840 0 0) "static/" ".DS_Store" "../" "./")
+
+ ("/Users/adrian/Work/happens360/priv/static/" (21807 2721 0 0) "js/" "images/" "css/" ".DS_Store" "../" "./")
+
+ ("/Users/adrian/Work/happens360/priv/static/images/" (21797 8428 0 0) "logo-happens360.png" "../" "./")
 
  ("/Users/adrian/Work/superdesk/server/superdesk/" (21799 47365 0 0) "workflow_test.py" "workflow.py" "validator.py" "utils.py" "utc_tests.py" "utc.py" "upload.py" "tests.py" "templates/" "storage/" "stats.py" "signals.py" "services.py" "resource.py" "privilege_test.py" "privilege.py" "notification_mock.py" "notification.py" "media/" "macro_register_tests.py" "macro_register.py" "json_path_tool.py" "io/" "eve_backend.py" "etree.py" "errors_test.py" "errors.py" "emails/" "datalayer_tests.py" "datalayer.py" "comments/" "commands/" "celery_tests.py" "celery_app.py" "backend_test.py" "activity.py" "aap_mm_datalayer.py" "__pycache__/" "__init__.pyc" "__init__.py" "../" "./")
 
@@ -27,23 +128,11 @@
 
  ("/Users/adrian/Work/superdesk/server/superdesk/io/commands/" (21799 47365 0 0) "update_ingest_tests.py" "update_ingest.py" "remove_expired_content.py" "add_provider.py" "__pycache__/" "__init__.py" "../" "./")
 
- ("/Users/adrian/Work/superdesk/" (21803 9792 0 0) "TAGS" "setup.py" "server/" "scripts/" "README.md" "LICENSE" "docker/" "client/" "bower.json" ".travis.yml" ".ropeproject/" ".gitignore" ".git/" ".bowerrc" "../" "./")
-
  ("/Users/adrian/Work/happens360/web/views/" (21797 9662 0 0) "page_view.ex" "layout_view.ex" "event_view.ex" "error_view.ex" "auth_view.ex" "../" "./")
 
  ("/Users/adrian/Work/happens360/web/templates/" (21797 9662 0 0) "page/" "layout/" "event/" "auth/" "../" "./")
 
- ("/Users/adrian/Work/happens360/web/controllers/" (21803 6409 0 0) "page_controller.ex" "auth_controller.ex" "api_events_controller.ex" "../" "./")
-
  ("/Users/adrian/Work/superdesk/client/app/scripts/superdesk-users/" (21797 47233 0 0) "views/" "users.js" "tests/" "styles/" "profile.js" "import/" "directives_spec.js" "activity/" "../" "./")
-
- ("/Users/adrian/Work/superdesk/client/app/scripts/" (21796 36901 0 0) "translations.js" "TAGS" "superdesk-workspace/" "superdesk-users/" "superdesk-stream/" "superdesk-settings/" "superdesk-search/" "superdesk-scratchpad/" "superdesk-planning/" "superdesk-packaging/" "superdesk-items-common/" "superdesk-ingest/" "superdesk-highlights/" "superdesk-groups/" "superdesk-dictionaries/" "superdesk-desks/" "superdesk-dashboard/" "superdesk-authoring/" "superdesk-archive/" "superdesk/" "main.js" "gettext.js" "config.js" "bower_components/" "../" "./")
-
- ("/Users/adrian/Work/superdesk/client/app/scripts/superdesk-authoring/" (21796 37496 0 0) "workqueue/" "widgets/" "views/" "versioning/" "tests/" "styles/" "packages/" "multiedit/" "metadata/" "macros/" "editor/" "comments/" "authoring.js" ".#authoring.js" "../" "./")
-
- ("/Users/adrian/Work/superdesk/client/" (21796 34361 0 0) "Vagrantfile" "test-main.js" "tasks/" "TAGS" "superdesk_vhost.conf" "spec/" "scripts/" "run.sh.save" "report/" "README.md" "protractor-conf.js" "package.json" "node_modules/" "LICENSE.txt" "karma.conf.js" "Gruntfile.js" "e2e-test-results/" "docs/" "Dockerfile-dev" "Dockerfile" "dist/" "CONTRIBUTING.md" "CHANGELOG.md" "bower.json" "bower/" "AUTHORS.md" "app/" ".travis.yml" ".tmp/" ".jshintrc" ".jscs.json" ".gitignore" ".dockerignore" ".bowerrc" "../" "./")
-
- ("/Users/adrian/Work/superdesk/client/app/" (21795 4251 0 0) "styles/" "scripts/" "robots.txt" "index.html" "images/" "favicon.ico" "docs.html" "docs/" "404.html" ".htaccess" ".buildignore" "../" "./")
 
  ("/Users/adrian/Work/superdesk/client/app/scripts/bower_components/" (21766 18884 0 0) "requirejs/" "raven-js/" "ng-file-upload/" "momentjs/" "moment-timezone/" "moment/" "ment.io/" "medium-editor/" "lodash/" "jquery-ui/" "jquery/" "jcrop/" "gridster/" "d3/" "bootstrap/" "angular-route/" "angular-resource/" "angular-mocks/" "angular-gettext/" "angular-bootstrap/" "angular/" "../" "./")
 
@@ -57,11 +146,7 @@
 
  ("/Users/adrian/Work/elixir-mongo/lib/" (21791 34454 0 0) "TAGS" "mongo_server.ex" "mongo_response.ex" "mongo_request.ex" "mongo_helpers.ex" "mongo_find.ex" "mongo_db.ex" "mongo_cursor.ex" "mongo_collection.ex" "mongo.ex" "../" "./")
 
- ("/Users/adrian/Work/" (21791 19725 0 0) "superdesk/" "sd-test-restart-help" "prog_elixir/" "phoenix_chat_example/" "iTerm2-Color-Schemes/" "eve-elastic/" "eve/" "elixir-mongo/" "elixir/" "e2e-env.sh" "dotfiles/" "dot_emacs/" "coffee-elixir/" "android-coffee/" "../" "./")
-
  ("/Users/adrian/Work/elixir-mongo/" (21791 31159 0 0) "VERSION" "test/" "README.md" "mix.lock" "mix.exs" "LICENSE" "lib/" "deps/" "CHANGELOG.md" "_build/" ".travis.yml" ".gitignore" ".git/" "../" "./")
-
- ("/Users/adrian/Work/superdesk/server/apps/" (21790 40109 0 0) "vocabularies/" "users/" "tasks_tests.py" "tasks.py" "stages.py" "spikes.py" "search/" "rules/" "publish/" "privilege.py" "prepopulate/" "preferences.py" "planning.py" "macros.py" "legal_archive/" "item_lock/" "item_autosave/" "highlights/" "groups.py" "duplication/" "dictionaries/" "desks.py" "coverages.py" "content.py" "common/" "auth/" "archive/" "apps_tests.py" "__pycache__/" "__init__.py" "../" "./")
 
  ("/Users/adrian/Work/coffee-elixir/web/controllers/" (21770 52411 0 0) "users-controller.ex" "page_controller.ex" "events-controller.ex" "auth_controller.ex" "../" "./")
 )

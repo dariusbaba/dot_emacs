@@ -1,36 +1,46 @@
 
 ;; ----- smex-history -----
 (
- package-install
- load-theme
- git-blame-mode
- shell
- flycheck-mode
+ json-reformat-region
+ git-gutter:toggle
  python-mode
- strokes-help
+ git-blame-mode
+ load-theme
+ package-install
+ shell
 )
 
 ;; ----- smex-data -----
 (
  (helm-locate . 1)
  (list-packages . 1)
- (python-mode . 3)
+ (python-mode . 4)
  (inferior-python-mode . 1)
- (company-ropemacs . 2)
+ (company-ropemacs . 3)
  (strokes-help . 2)
  (shell . 5)
- (neotree-hidden-file-toggle . 1)
+ (neotree-hidden-file-toggle . 7)
  (eshell . 1)
  (er-refresh-etags . 1)
  (helm-find . 1)
- (load-theme . 24)
+ (load-theme . 54)
  (whitespace-mode . 2)
- (package-install . 6)
+ (package-install . 12)
  (package-menu-refresh . 1)
  (flycheck-mode . 2)
- (neotree-create-node . 4)
+ (neotree-create-node . 27)
  (flycheck-select-checker . 2)
  (flycheck-set-checker-executable . 1)
- (git-blame-mode . 2)
- (neotree-rename-node . 3)
+ (git-blame-mode . 3)
+ (neotree-rename-node . 19)
+ (json-reformat-region . 24)
+ (neotree-delete-node . 88)
+ (my-evil-prepare-word-search . 1)
+ (evil-Surround-region . 1)
+ (json-pretty-print . 1)
+ (eval-region . 1)
+ (package-refresh-contents . 1)
+ (doc-view-mode . 1)
+ (git-gutter:toggle . 1)
+ (evil-goto-definition . 2)
 )
