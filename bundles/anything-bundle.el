@@ -151,6 +151,9 @@
 ;; =============================================================================
 ;; Evil
 ;; =============================================================================
+;; Org mode tab working
+(setq evil-want-C-i-jump nil)
+
 (require 'evil)
 (evil-mode 1)
 (global-evil-visualstar-mode 1)
@@ -186,8 +189,6 @@
 (evil-add-hjkl-bindings magit-log-mode-map 'emacs)
 (evil-add-hjkl-bindings magit-commit-mode-map 'emacs)
 (evil-add-hjkl-bindings occur-mode 'emacs)
-
-(setq evil-want-C-i-jump t)
 (setq evil-want-C-u-scroll t)
 
 (global-evil-leader-mode)
@@ -436,63 +437,14 @@ Repeated invocations toggle between the two most recently open buffers."
   (my-evil-terminal-cursor-change)
 
 
-;; (defun change-major-mode-hook () (modify-syntax-entry ?_ "w"))
 (setq inhibit-startup-screen t)
-
-; (defun evil-move-point-by-word (dir)
-;   "Used internally by evil
-;
-; A pure-vim emulation of move-word runs slow, but emacs forward-word
-; does not recognize underscores as word boundaries. This method calls
-; Emacs native forward-word, and then repeats if it detects it stopped
-; on an underscore."
-;   (let ((success (forward-word dir))
-;         (fn (if (= 1 dir) 'looking-at 'looking-back)))
-;
-;     (if (and success (funcall fn "_"))
-;         (evil-move-point-by-word dir)
-;       success)))
-;
-; (defun evil-forward-word (&optional count)
-;   "Move by words.
-; Moves point COUNT words forward or (- COUNT) words backward if
-; COUNT is negative. This function is the same as `forward-word'
-; but returns the number of words by which point could *not* be
-; moved."
-;   (setq count (or count 1))
-;   (let* ((dir (if (>= count 0) +1 -1))
-;          (count (abs count)))
-;     (while (and (> count 0)
-;                 (evil-move-point-by-word dir))
-;       (setq count (1- count)))
-;     count))
-;
-; (evil-define-union-move evil-move-word (count)
-;   "Move by words."
-;   (evil-move-chars "^ \t\r\n[:word:]_" count)
-;   (let ((word-separating-categories evil-cjk-word-separating-categories)
-;         (word-combining-categories evil-cjk-word-combining-categories))
-;     (evil-forward-word count))
-;   (evil-move-empty-lines count))
-
 
 
 ;; =============================================================================
 ;; Custom Packages
 ;; =============================================================================
 
-;; (load "~/.emacs.d/vendor/ujelly-theme/ujelly-theme.el")
 (load-theme 'atom-dark)
-
-; (let ((bg (face-attribute 'default :background)))
-;   (custom-set-faces
-;     `(company-scrollbar-bg ((t (:background "#151515"))))
-;     `(company-scrollbar-fg ((t (:background "#151515"))))
-;     `(company-tooltip ((t (:foreground "#f5f5f5" :background "#1c1c1c"))))
-;     `(company-preview-common ((t :background "gray10" :foreground "#929290")))
-;     `(company-tooltip-common ((t (:foreground "#cc6666" :background "#151515"))))
-;     `(company-tooltip-selection ((t (:background "#363636"))))))
-
 
 (require 'pbcopy)
 (turn-on-pbcopy)
@@ -719,6 +671,22 @@ one more than the current position."
 (add-to-list 'mmm-mode-ext-classes-alist '(markdown-mode nil markdown-ruby))
 (add-to-list 'mmm-mode-ext-classes-alist '(markdown-mode nil markdown-elixir))
 (add-to-list 'mmm-mode-ext-classes-alist '(markdown-mode nil markdown-js))
+
+(defun window-set-resize-to (percent)
+  "Resize window to the specified PERCENT.  Expects PERCENT as 0.6."
+  (interactive)
+  (window-resize nil (- (truncate (* percent (frame-width))) (window-width)) t))
+
+(defun split-half ()
+  "Resize window to equal split."
+  (interactive)
+  (window-set-resize-to 0.5))
+
+(defun split-60-40 ()
+  "Resize window to equal split."
+  (interactive)
+  (window-set-resize-to 0.6))
+
 
 (setq custom-file (expand-file-name "customize.el" user-emacs-directory))
 (load custom-file)
