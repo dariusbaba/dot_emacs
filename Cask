@@ -16,7 +16,6 @@
 (depends-on "pbcopy")
 (depends-on "elixir-mode")
 (depends-on "ruby-mode")
-(depends-on "python-mode")
 (depends-on "coffee-mode")
 (depends-on "flycheck")
 (depends-on "yasnippet")

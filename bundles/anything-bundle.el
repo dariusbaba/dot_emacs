@@ -109,44 +109,6 @@
   "always save buffer"
   (set-buffer-modified-p t))
 
-;; =============================================================================
-;; Python
-
-;; Python editing
-(require 'yasnippet)
-
-;; flycheck
-(add-hook 'after-init-hook #'global-flycheck-mode)
-
-(global-flycheck-mode t)
-
-;; ;; Python mode settings
-(require 'python-mode)
-(add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
-(setq py-electric-colon-active t)
-(add-hook 'python-mode-hook 'yas-minor-mode)
-
-;; ;; Jedi settings
-(require 'jedi)
-;; It's also required to run "pip install --user jedi" and "pip
-;; install --user epc" to get the Python side of the library work
-;; correctly.
-;; With the same interpreter you're using.
-
-;; if you need to change your python intepreter, if you want to change it
-;; (setq jedi:server-command
-;;       '("python2" "/home/andrea/.emacs.d/elpa/jedi-0.1.2/jediepcserver.py"))
-
-(add-hook 'python-mode-hook
-	  (lambda ()
-	    (jedi:setup)
-	    (jedi:ac-setup)
-            (local-set-key (kbd "M-'") 'jedi:show-doc)
-            (local-set-key (kbd "M-SPC") 'jedi:complete)
-            (local-set-key (kbd "M-.") 'jedi:goto-definition)))
-
-;; =============================================================================
-
 
 ;; =============================================================================
 ;; Evil
@@ -350,39 +312,35 @@ Repeated invocations toggle between the two most recently open buffers."
 
 ;; Powerline
 (require 'powerline)
-;; (powerline-vim-theme)
+(powerline-vim-theme)
 
-
-
-(setq-default mode-line-format
-              '("%e"
-                (:eval
-                 (let* ((active (powerline-selected-window-active))
-                        (mode-line (if active 'mode-line 'mode-line-inactive))
-                        (face1 (if active 'powerline-active1 'powerline-inactive1))
-                        (face2 (if active 'powerline-active2 'powerline-inactive2))
-                        (separator-left (intern (format "powerline-%s-%s"
-                                                        powerline-default-separator
-                                                        (car powerline-default-separator-dir))))
-                        (separator-right (intern (format "powerline-%s-%s"
-                                                         powerline-default-separator
-                                                         (cdr powerline-default-separator-dir))))
-                        (lhs (list (powerline-buffer-id `(mode-line-buffer-id ,mode-line) 'l)
-                                   (when (and vc-mode buffer-file-name)
-                                     (let ((backend (vc-backend buffer-file-name)))
-                                       (when backend
-                                         (concat (powerline-raw "[" mode-line 'l)
-                                                 (powerline-raw (format "%s" (vc-working-revision buffer-file-name backend)))
-                                                 (powerline-raw "]" mode-line)))))))
-                        (rhs (list (powerline-raw global-mode-string mode-line 'r)
-                                   (powerline-raw "%l," mode-line 'l)
-                                   (powerline-raw (format-mode-line '(10 "%c")))
-                                   (powerline-raw (replace-regexp-in-string  "%" "%%" (format-mode-line '(-3 "%p"))) mode-line 'r))))
-                   (concat (powerline-render lhs)
-                           (powerline-fill mode-line (powerline-width rhs))
-                           (powerline-render rhs))))))
-
-
+;; (setq-default mode-line-format
+;;               '("%e"
+;;                 (:eval
+;;                  (let* ((active (powerline-selected-window-active))
+;;                         (mode-line (if active 'mode-line 'mode-line-inactive))
+;;                         (face1 (if active 'powerline-active1 'powerline-inactive1))
+;;                         (face2 (if active 'powerline-active2 'powerline-inactive2))
+;;                         (separator-left (intern (format "powerline-%s-%s"
+;;                                                         powerline-default-separator
+;;                                                         (car powerline-default-separator-dir))))
+;;                         (separator-right (intern (format "powerline-%s-%s"
+;;                                                          powerline-default-separator
+;;                                                          (cdr powerline-default-separator-dir))))
+;;                         (lhs (list (powerline-buffer-id `(mode-line-buffer-id ,mode-line) 'l)
+;;                                    (when (and vc-mode buffer-file-name)
+;;                                      (let ((backend (vc-backend buffer-file-name)))
+;;                                        (when backend
+;;                                          (concat (powerline-raw "[" mode-line 'l)
+;;                                                  (powerline-raw (format "%s" (vc-working-revision buffer-file-name backend)))
+;;                                                  (powerline-raw "]" mode-line)))))))
+;;                         (rhs (list (powerline-raw global-mode-string mode-line 'r)
+;;                                    (powerline-raw "%l," mode-line 'l)
+;;                                    (powerline-raw (format-mode-line '(10 "%c")))
+;;                                    (powerline-raw (replace-regexp-in-string  "%" "%%" (format-mode-line '(-3 "%p"))) mode-line 'r))))
+;;                    (concat (powerline-render lhs)
+;;                            (powerline-fill mode-line (powerline-width rhs))
+;;                            (powerline-render rhs))))))
 
 
 ;; Highlight cursor line
@@ -509,7 +467,6 @@ Repeated invocations toggle between the two most recently open buffers."
 (modify-syntax-entry (string-to-char "_") "w" ruby-mode-syntax-table)
 (modify-syntax-entry (string-to-char "_") "w" elixir-mode-syntax-table)
 (modify-syntax-entry (string-to-char "_") "w" coffee-mode-syntax-table)
-(modify-syntax-entry (string-to-char "_") "w" python-mode-syntax-table)
 
 ;; JSX
 ;; (require 'web-mode)
@@ -560,59 +517,59 @@ Repeated invocations toggle between the two most recently open buffers."
 
 ;;==============================================================================
 ;; Hack "*" to hightlight, but not jump to first match
-(defun my-evil-prepare-word-search (forward symbol)
-  "Prepare word search, but do not move yet."
-  (interactive (list (prefix-numeric-value current-prefix-arg)
-                     evil-symbol-word-search))
-  (let ((string (car-safe regexp-search-ring))
-        (move (if forward #'forward-char #'backward-char))
-        (end (if forward #'eobp #'bobp)))
-    (setq isearch-forward forward)
-    (setq string (evil-find-thing forward (if symbol 'symbol 'word)))
-    (cond
-     ((null string)
-      (error "No word under point"))
-     (t
-      (setq string
-            (format (if symbol "\\_<%s\\_>" "\\<%s\\>")
-                    (regexp-quote string)))))
-    (evil-push-search-history string forward)
-    (my-evil-search string forward t)))
+;; (defun my-evil-prepare-word-search (forward symbol)
+;;   "Prepare word search, but do not move yet."
+;;   (interactive (list (prefix-numeric-value current-prefix-arg)
+;;                      evil-symbol-word-search))
+;;   (let ((string (car-safe regexp-search-ring))
+;;         (move (if forward #'forward-char #'backward-char))
+;;         (end (if forward #'eobp #'bobp)))
+;;     (setq isearch-forward forward)
+;;     (setq string (evil-find-thing forward (if symbol 'symbol 'word)))
+;;     (cond
+;;      ((null string)
+;;       (error "No word under point"))
+;;      (t
+;;       (setq string
+;;             (format (if symbol "\\_<%s\\_>" "\\<%s\\>")
+;;                     (regexp-quote string)))))
+;;     (evil-push-search-history string forward)
+;;     (my-evil-search string forward t)))
 
-(defun my-evil-search (string forward &optional regexp-p start)
-  "Highlight STRING matches.
-If FORWARD is nil, search backward, otherwise forward.
-If REGEXP-P is non-nil, STRING is taken to be a regular expression.
-START is the position to search from; if unspecified, it is
-one more than the current position."
-  (when (and (stringp string)
-             (not (string= string "")))
-    (let* ((orig (point))
-           (start (or start
-                      (if forward
-                          (min (point-max) (1+ orig))
-                        orig)))
-           (isearch-regexp regexp-p)
-           (isearch-forward forward)
-           (case-fold-search
-            (unless (and search-upper-case
-                         (not (isearch-no-upper-case-p string nil)))
-              case-fold-search)))
-      ;; no text properties, thank you very much
-      (set-text-properties 0 (length string) nil string)
-      (setq isearch-string string)
-      (isearch-update-ring string regexp-p)
-      ;; handle opening and closing of invisible area
-      (cond
-       ((boundp 'isearch-filter-predicates)
-        (dolist (pred isearch-filter-predicates)
-          (funcall pred (match-beginning 0) (match-end 0))))
-       ((boundp 'isearch-filter-predicate)
-        (funcall isearch-filter-predicate (match-beginning 0) (match-end 0))))
-      (evil-flash-search-pattern string t))))
+;; (defun my-evil-search (string forward &optional regexp-p start)
+;;   "Highlight STRING matches.
+;; If FORWARD is nil, search backward, otherwise forward.
+;; If REGEXP-P is non-nil, STRING is taken to be a regular expression.
+;; START is the position to search from; if unspecified, it is
+;; one more than the current position."
+;;   (when (and (stringp string)
+;;              (not (string= string "")))
+;;     (let* ((orig (point))
+;;            (start (or start
+;;                       (if forward
+;;                           (min (point-max) (1+ orig))
+;;                         orig)))
+;;            (isearch-regexp regexp-p)
+;;            (isearch-forward forward)
+;;            (case-fold-search
+;;             (unless (and search-upper-case
+;;                          (not (isearch-no-upper-case-p string nil)))
+;;               case-fold-search)))
+;;       ;; no text properties, thank you very much
+;;       (set-text-properties 0 (length string) nil string)
+;;       (setq isearch-string string)
+;;       (isearch-update-ring string regexp-p)
+;;       ;; handle opening and closing of invisible area
+;;       (cond
+;;        ((boundp 'isearch-filter-predicates)
+;;         (dolist (pred isearch-filter-predicates)
+;;           (funcall pred (match-beginning 0) (match-end 0))))
+;;        ((boundp 'isearch-filter-predicate)
+;;         (funcall isearch-filter-predicate (match-beginning 0) (match-end 0))))
+;;       (evil-flash-search-pattern string t))))
 
-(define-key evil-motion-state-map "*" 'my-evil-prepare-word-search)
-(define-key evil-motion-state-map (kbd "*") 'my-evil-prepare-word-search)
+;; (define-key evil-motion-state-map "*" 'my-evil-prepare-word-search)
+;; (define-key evil-motion-state-map (kbd "*") 'my-evil-prepare-word-search)
 ;; end highlight hack
 ;;==============================================================================
 
@@ -686,6 +643,42 @@ one more than the current position."
   "Resize window to equal split."
   (interactive)
   (window-set-resize-to 0.6))
+;; =============================================================================
+;; Python
+
+;; Python editing
+(require 'yasnippet)
+
+;; flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+(global-flycheck-mode t)
+
+;; ;; Python mode settings
+;; (require 'python-mode)
+;; (add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
+(add-hook 'python-mode-hook 'yas-minor-mode)
+
+;; ;; Jedi settings
+(require 'jedi)
+;; It's also required to run "pip install --user jedi" and "pip
+;; install --user epc" to get the Python side of the library work
+;; correctly.
+;; With the same interpreter you're using.
+
+;; if you need to change your python intepreter, if you want to change it
+;; (setq jedi:server-command
+;;       '("python2" "/home/andrea/.emacs.d/elpa/jedi-0.1.2/jediepcserver.py"))
+
+(add-hook 'python-mode-hook
+	  (lambda ()
+	    (jedi:setup)
+	    (jedi:ac-setup)
+            (local-set-key (kbd "M-'") 'jedi:show-doc)
+            (local-set-key (kbd "M-SPC") 'jedi:complete)
+            (local-set-key (kbd "M-.") 'jedi:goto-definition)))
+
+;; =============================================================================
 
 
 (setq custom-file (expand-file-name "customize.el" user-emacs-directory))
