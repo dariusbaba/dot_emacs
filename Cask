@@ -29,3 +29,5 @@
 (depends-on "magit")
 (depends-on "browse-at-remote")
 (depends-on "writeroom-mode")
+(depends-on "atom-dark-theme")
+(depends-on "alchemist")
