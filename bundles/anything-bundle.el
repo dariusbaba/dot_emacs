@@ -8,6 +8,9 @@
 (setq make-backup-files nil)
 (menu-bar-mode -1)
 
+;; (setq x-select-enable-clipboard t)
+;; (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
+
 (smex-initialize)
 ;(ido-hacks 1)
 
@@ -680,6 +683,24 @@ Repeated invocations toggle between the two most recently open buffers."
 
 ;; =============================================================================
 
+;; use xclip to copy/paste in emacs-nox
+(unless window-system
+  (when (getenv "DISPLAY")
+    (defun xclip-cut-function (text &optional push)
+      (with-temp-buffer
+	(insert text)
+	(call-process-region (point-min) (point-max) "xclip" nil 0 nil "-i" "-selection" "clipboard")))
+    (defun xclip-paste-function()
+      (let ((xclip-output (shell-command-to-string "xclip -o -selection clipboard")))
+	(unless (string= (car kill-ring) xclip-output)
+	  xclip-output )))
+    (setq interprogram-cut-function 'xclip-cut-function)
+    (setq interprogram-paste-function 'xclip-paste-function)
+    ))
+
+;; xterm mouse support
+(require 'mouse)
+(xterm-mouse-mode t)
 
 (setq custom-file (expand-file-name "customize.el" user-emacs-directory))
 (load custom-file)
