@@ -405,7 +405,8 @@ Repeated invocations toggle between the two most recently open buffers."
 ;; Custom Packages
 ;; =============================================================================
 
-(load-theme 'atom-dark)
+;; (load-theme 'atom-dark)
+(load-theme 'tsdh-dark)
 
 (require 'pbcopy)
 (turn-on-pbcopy)
