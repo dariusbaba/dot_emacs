@@ -466,6 +466,13 @@ Repeated invocations toggle between the two most recently open buffers."
 (modify-syntax-entry (string-to-char "_") "w" lisp-mode-syntax-table)
 (modify-syntax-entry (string-to-char "_") "w" emacs-lisp-mode-syntax-table)
 ;; (require 'enh-ruby-mode)
+
+;; flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+(global-flycheck-mode t)
+
+
 (require 'ruby-mode)
 (require 'coffee-mode)
 (modify-syntax-entry (string-to-char "_") "w" ruby-mode-syntax-table)
@@ -473,18 +480,18 @@ Repeated invocations toggle between the two most recently open buffers."
 (modify-syntax-entry (string-to-char "_") "w" coffee-mode-syntax-table)
 
 ;; JSX
-;; (require 'web-mode)
-;; (add-to-list 'auto-mode-alist '("\\.js[x]?$" . web-mode))
-;; (defadvice web-mode-highlight-part (around tweak-jsx activate)
-;;   (if (equal web-mode-content-type "jsx")
-;;       (let ((web-mode-enable-part-face nil))
-;;         ad-do-it)
-;;     ad-do-it))
+(require 'web-mode)
 (require 'jsx-mode)
-(add-to-list 'auto-mode-alist '("\\.js[x]?\\'" . jsx-mode))
+(add-to-list 'auto-mode-alist '("\\.js[x]?\\'" . web-mode))
 (setq jsx-indent-level 2)
+(setq web-indent-level 2)
 
+;; disable jshint since we prefer eslint checking
+(setq-default flycheck-disabled-checkers
+  (append flycheck-disabled-checkers '(javascript-jshint)))
 
+;; use eslint with web-mode for jsx files
+(flycheck-add-mode 'javascript-eslint 'web-mode)
 
 ;; File handling
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -513,70 +520,16 @@ Repeated invocations toggle between the two most recently open buffers."
                             (setq tab-width 2)))
 
 
+(add-hook 'web-mode-hook (lambda ()
+                            (setq evil-shift-width 2)
+                            (setq tab-width 2)))
+
+
 ;; Play nice with evil-mode in compilation-mode, ie project-ag results
 (add-hook 'compilation-mode-hook '(lambda ()
                                     (local-unset-key "g")
                                     (local-unset-key "h")
                                     (local-unset-key "k")))
-
-;;==============================================================================
-;; Hack "*" to hightlight, but not jump to first match
-;; (defun my-evil-prepare-word-search (forward symbol)
-;;   "Prepare word search, but do not move yet."
-;;   (interactive (list (prefix-numeric-value current-prefix-arg)
-;;                      evil-symbol-word-search))
-;;   (let ((string (car-safe regexp-search-ring))
-;;         (move (if forward #'forward-char #'backward-char))
-;;         (end (if forward #'eobp #'bobp)))
-;;     (setq isearch-forward forward)
-;;     (setq string (evil-find-thing forward (if symbol 'symbol 'word)))
-;;     (cond
-;;      ((null string)
-;;       (error "No word under point"))
-;;      (t
-;;       (setq string
-;;             (format (if symbol "\\_<%s\\_>" "\\<%s\\>")
-;;                     (regexp-quote string)))))
-;;     (evil-push-search-history string forward)
-;;     (my-evil-search string forward t)))
-
-;; (defun my-evil-search (string forward &optional regexp-p start)
-;;   "Highlight STRING matches.
-;; If FORWARD is nil, search backward, otherwise forward.
-;; If REGEXP-P is non-nil, STRING is taken to be a regular expression.
-;; START is the position to search from; if unspecified, it is
-;; one more than the current position."
-;;   (when (and (stringp string)
-;;              (not (string= string "")))
-;;     (let* ((orig (point))
-;;            (start (or start
-;;                       (if forward
-;;                           (min (point-max) (1+ orig))
-;;                         orig)))
-;;            (isearch-regexp regexp-p)
-;;            (isearch-forward forward)
-;;            (case-fold-search
-;;             (unless (and search-upper-case
-;;                          (not (isearch-no-upper-case-p string nil)))
-;;               case-fold-search)))
-;;       ;; no text properties, thank you very much
-;;       (set-text-properties 0 (length string) nil string)
-;;       (setq isearch-string string)
-;;       (isearch-update-ring string regexp-p)
-;;       ;; handle opening and closing of invisible area
-;;       (cond
-;;        ((boundp 'isearch-filter-predicates)
-;;         (dolist (pred isearch-filter-predicates)
-;;           (funcall pred (match-beginning 0) (match-end 0))))
-;;        ((boundp 'isearch-filter-predicate)
-;;         (funcall isearch-filter-predicate (match-beginning 0) (match-end 0))))
-;;       (evil-flash-search-pattern string t))))
-
-;; (define-key evil-motion-state-map "*" 'my-evil-prepare-word-search)
-;; (define-key evil-motion-state-map (kbd "*") 'my-evil-prepare-word-search)
-;; end highlight hack
-;;==============================================================================
-
 
 ;; Enable syntax highlighting in markdown
 (require 'mmm-mode)
@@ -652,12 +605,6 @@ Repeated invocations toggle between the two most recently open buffers."
 
 ;; Python editing
 (require 'yasnippet)
-
-;; flycheck
-(add-hook 'after-init-hook #'global-flycheck-mode)
-
-(global-flycheck-mode t)
-
 ;; ;; Python mode settings
 ;; (require 'python-mode)
 ;; (add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
