@@ -406,7 +406,9 @@ Repeated invocations toggle between the two most recently open buffers."
 ;; =============================================================================
 
 ;; (load-theme 'atom-dark)
-(load-theme 'tsdh-dark)
+;; (load-theme 'tsdh-dark)
+;; (load-theme 'tango-dark)
+(load-theme 'molokai)
 
 (require 'pbcopy)
 (turn-on-pbcopy)
@@ -418,23 +420,7 @@ Repeated invocations toggle between the two most recently open buffers."
 (add-to-list 'load-path "~/.emacs.d/vendor/alchemist.el")
 (require 'alchemist)
 
-;; (add-to-list 'elixir-mode-hook
-;;   (defun auto-activate-ruby-end-mode-for-elixir-mode ()
-;;     (set (make-variable-buffer-local 'ruby-end-expand-keywords-before-re)
-;;       "\\(?:^\\|\\s-+\\)\\(?:do\\)")
-;;     (set (make-variable-buffer-local 'ruby-end-check-statement-modifiers) nil)
-;;     (ruby-end-mode +1)))
-
 (load "~/.emacs.d/vendor/change-case.el")
-
-;;; esc quits
-;; (define-key evil-normal-state-map (kbd "ESC") 'keyboard-quit)
-;; (define-key evil-visual-state-map (kbd "ESC") 'keyboard-quit)
-;; (define-key minibuffer-local-map (kbd "ESC") 'minibuffer-keyboard-quit)
-;; (define-key minibuffer-local-ns-map (kbd "ESC") 'minibuffer-keyboard-quit)
-;; (define-key minibuffer-local-completion-map (kbd "ESC") 'minibuffer-keyboard-quit)
-;; (define-key minibuffer-local-must-match-map (kbd "ESC") 'minibuffer-keyboard-quit)
-;; (define-key minibuffer-local-isearch-map (kbd "ESC") 'minibuffer-keyboard-quit)
 
 ;; Enable mouse support
 (unless window-system
