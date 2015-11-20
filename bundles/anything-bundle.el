@@ -467,10 +467,7 @@ Repeated invocations toggle between the two most recently open buffers."
 
 ;; JSX
 (require 'web-mode)
-(require 'jsx-mode)
 (add-to-list 'auto-mode-alist '("\\.js[x]?\\'" . web-mode))
-(setq jsx-indent-level 2)
-(setq web-indent-level 2)
 
 ;; disable jshint since we prefer eslint checking
 (setq-default flycheck-disabled-checkers
@@ -484,6 +481,8 @@ Repeated invocations toggle between the two most recently open buffers."
 
 ;; Space indentation - I want tab as two spaces everywhere
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+
 ;; (add-hook 'enh-ruby-mode-hook (lambda () (setq evil-shift-width 2)))
 (add-hook 'ruby-mode-hook (lambda ()
                             (setq evil-shift-width 2)
