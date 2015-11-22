@@ -4,8 +4,7 @@
 
 (package-initialize)
 
-(require 'cask)
-
+(require 'cask "~/.cask/cask.el")
 (cask-initialize)
 
 (add-to-list 'load-path (expand-file-name "bundles" user-emacs-directory))
