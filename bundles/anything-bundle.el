@@ -404,7 +404,6 @@ Repeated invocations toggle between the two most recently open buffers."
 ;; Custom Packages
 ;; =============================================================================
 
-;; (load-theme 'atom-one-dark)
 ;; (load-theme 'atom-dark)
 ;; (load-theme 'tsdh-dark)
 ;; (load-theme 'tango-dark)
@@ -468,7 +467,7 @@ Repeated invocations toggle between the two most recently open buffers."
 
 ;; JSX
 (require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.js[x]?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js?\\'" . web-mode))
 
 ;; disable jshint since we prefer eslint checking
 (setq-default flycheck-disabled-checkers
@@ -506,10 +505,12 @@ Repeated invocations toggle between the two most recently open buffers."
                             (setq tab-width 2)))
 
 
-(add-hook 'web-mode-hook (lambda ()
-                            (setq evil-shift-width 2)
-                            (setq tab-width 2)))
-
+;; adjust indents for web-mode to 2 spaces
+(defun my-web-mode-hook ()
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2))
+(add-hook 'web-mode-hook  'my-web-mode-hook)
 
 ;; Play nice with evil-mode in compilation-mode, ie project-ag results
 (add-hook 'compilation-mode-hook '(lambda ()
