@@ -33,3 +33,4 @@
 (depends-on "writeroom-mode")
 (depends-on "atom-dark-theme")
 (depends-on "alchemist")
+(depends-on "molokai-theme")
