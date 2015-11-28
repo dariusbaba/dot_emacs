@@ -317,35 +317,6 @@ Repeated invocations toggle between the two most recently open buffers."
 (require 'powerline)
 (powerline-vim-theme)
 
-;; (setq-default mode-line-format
-;;               '("%e"
-;;                 (:eval
-;;                  (let* ((active (powerline-selected-window-active))
-;;                         (mode-line (if active 'mode-line 'mode-line-inactive))
-;;                         (face1 (if active 'powerline-active1 'powerline-inactive1))
-;;                         (face2 (if active 'powerline-active2 'powerline-inactive2))
-;;                         (separator-left (intern (format "powerline-%s-%s"
-;;                                                         powerline-default-separator
-;;                                                         (car powerline-default-separator-dir))))
-;;                         (separator-right (intern (format "powerline-%s-%s"
-;;                                                          powerline-default-separator
-;;                                                          (cdr powerline-default-separator-dir))))
-;;                         (lhs (list (powerline-buffer-id `(mode-line-buffer-id ,mode-line) 'l)
-;;                                    (when (and vc-mode buffer-file-name)
-;;                                      (let ((backend (vc-backend buffer-file-name)))
-;;                                        (when backend
-;;                                          (concat (powerline-raw "[" mode-line 'l)
-;;                                                  (powerline-raw (format "%s" (vc-working-revision buffer-file-name backend)))
-;;                                                  (powerline-raw "]" mode-line)))))))
-;;                         (rhs (list (powerline-raw global-mode-string mode-line 'r)
-;;                                    (powerline-raw "%l," mode-line 'l)
-;;                                    (powerline-raw (format-mode-line '(10 "%c")))
-;;                                    (powerline-raw (replace-regexp-in-string  "%" "%%" (format-mode-line '(-3 "%p"))) mode-line 'r))))
-;;                    (concat (powerline-render lhs)
-;;                            (powerline-fill mode-line (powerline-width rhs))
-;;                            (powerline-render rhs))))))
-
-
 ;; Highlight cursor line
 (global-hl-line-mode t)
 (set-face-background hl-line-face "gray10")
@@ -364,15 +335,6 @@ Repeated invocations toggle between the two most recently open buffers."
  ;; If there is more than one, they won't work right.
  )
 
-;; Git Gutter
-;;(global-git-gutter+-mode 1)
-;; If you enable global minor mode
-;; (require 'git-gutter)
-;; (global-git-gutter-mode t)
-
-;; ;; If you would like to use git-gutter.el and linum-mode
-;; (git-gutter:linum-setup)
-
 (require 'smooth-scrolling)
 (setq smooth-scroll-margin 3)
 ;; Delay updates to give Emacs a chance for other changes
@@ -386,7 +348,17 @@ Repeated invocations toggle between the two most recently open buffers."
 (defun my-send-string-to-terminal (string)
    (unless (display-graphic-p) (send-string-to-terminal string)))
 
+(defvar script-name "gnome-terminal-cursor-shape.sh")
+
+(defun call-my-script-with-word (string)
+  (shell-command
+   (concat script-name " " string)))
+
+(global-set-key (kbd "C-c o") 'call-my-script-with-word)
 (defun my-evil-terminal-cursor-change ()
+   (when (string= (getenv "DESKTOP_SESSION") "cinnamon")
+        (add-hook 'evil-insert-state-entry-hook (lambda () (call-my-script-with-word "ibeam")))
+           (add-hook 'evil-insert-state-exit-hook  (lambda () (call-my-script-with-word "block"))))
    (when (string= (getenv "TERM_PROGRAM") "iTerm.app")
         (add-hook 'evil-insert-state-entry-hook (lambda () (my-send-string-to-terminal "\e]50;CursorShape=1\x7")))
            (add-hook 'evil-insert-state-exit-hook  (lambda () (my-send-string-to-terminal "\e]50;CursorShape=0\x7"))))
