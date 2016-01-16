@@ -41,30 +41,6 @@
 ;; Do not use default slight delay
 (setq show-paren-delay 0)
 
-;; Autocomplete
-;; (require 'auto-complete-config)
-;; (ac-config-default)
-;; (setq ac-ignore-case nil)
-;; (add-to-list 'ac-modes 'enh-ruby-mode)
-;; (add-to-list 'ac-modes 'web-mode)
-;; (add-to-list 'ac-modes 'elixir-mode)
-;; (auto-complete-mode t)
-;; ;; Do not autocomplete on RET
-;; (define-key ac-completing-map [return] nil)
-;; (define-key ac-completing-map "\r" nil)
-;; ;; autocomplete within strings
-;; (setq ac-disable-faces nil)
-;; (custom-set-variables
-;;   '(ac-etags-requires 1))
-
-;; (eval-after-load "etags"
-;;   '(progn
-;;       (ac-etags-setup)))
-
-;; (add-hook 'c-mode-common-hook 'ac-etags-ac-setup)
-;; (add-hook 'enh-ruby-mode-hook 'ac-etags-ac-setup)
-;; (add-hook 'elixir-mode-hook 'ac-etags-ac-setup)
-
 ;;==============================================================================
 ;; Autocomplete with company-mode
 ;;==============================================================================
