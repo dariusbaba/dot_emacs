@@ -141,11 +141,6 @@
   "cc" 'evilnc-comment-or-uncomment-lines
   "ag" 'projectile-ag
   "," 'switch-to-previous-buffer
-  ; "gg" 'git-gutter+:toggle
-  ; "gd" 'git-gutter+:popup-diff
-  ; "gp" 'git-gutter+:previous-hunk
-  ; "gn" 'git-gutter+:next-hunk
-  ; "gr" 'git-gutter+:revert-hunk
   "gb" 'mo-git-blame-current
   "gL" 'magit-log
   "gs" 'magit-status
@@ -320,32 +315,6 @@ Repeated invocations toggle between the two most recently open buffers."
 ; Auto-indent with the Return key
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
-;; Fix cursor
-(defun my-send-string-to-terminal (string)
-   (unless (display-graphic-p) (send-string-to-terminal string)))
-
-(defvar script-name "gnome-terminal-cursor-shape.sh")
-
-(defun call-my-script-with-word (string)
-  (shell-command
-   (concat script-name " " string)))
-
-(global-set-key (kbd "C-c o") 'call-my-script-with-word)
-(defun my-evil-terminal-cursor-change ()
-   (when (string= (getenv "DESKTOP_SESSION") "cinnamon")
-        (add-hook 'evil-insert-state-entry-hook (lambda () (call-my-script-with-word "ibeam")))
-           (add-hook 'evil-insert-state-exit-hook  (lambda () (call-my-script-with-word "block"))))
-   (when (string= (getenv "TERM_PROGRAM") "iTerm.app")
-        (add-hook 'evil-insert-state-entry-hook (lambda () (my-send-string-to-terminal "\e]50;CursorShape=1\x7")))
-           (add-hook 'evil-insert-state-exit-hook  (lambda () (my-send-string-to-terminal "\e]50;CursorShape=0\x7"))))
-     (when (and (getenv "TMUX") (string= (getenv "TERM_PROGRAM") "iTerm.app"))
-          (add-hook 'evil-insert-state-entry-hook (lambda () (my-send-string-to-terminal "\ePtmux;\e\e]50;CursorShape=1\x7\e\\")))
-              (add-hook 'evil-insert-state-exit-hook  (lambda () (my-send-string-to-terminal "\ePtmux;\e\e]50;CursorShape=0\x7\e\\")))))
-
-  (add-hook 'after-make-frame-functions (lambda (frame) (my-evil-terminal-cursor-change)))
-  (my-evil-terminal-cursor-change)
-
-
 (setq inhibit-startup-screen t)
 
 ;; =============================================================================
@@ -370,30 +339,6 @@ Repeated invocations toggle between the two most recently open buffers."
 
 (load "~/.emacs.d/vendor/change-case.el")
 
-;; Enable mouse support
-(unless window-system
-  (require 'mouse)
-  (xterm-mouse-mode t)
-  (global-set-key [mouse-4] '(lambda ()
-                              (interactive)
-                              (scroll-down 1)))
-  (global-set-key [mouse-5] '(lambda ()
-                              (interactive)
-                              (scroll-up 1)))
-  (defun track-mouse (e))
-  (setq mouse-sel-mode t)
-)
-
-(defun author-mode ()
-  (interactive)
-  (linum-mode -1)
-  (writeroom-mode t)
-  (longlines-mode t)
-  (flyspell-mode t)
-  (turn-off-smartparens-mode)
-  (company-mode -1)
-  )
-
 ;; I want underscores as part of word in all modes
 (modify-syntax-entry (string-to-char "_") "w" (standard-syntax-table))
 (modify-syntax-entry (string-to-char "_") "w" text-mode-syntax-table)
@@ -406,12 +351,7 @@ Repeated invocations toggle between the two most recently open buffers."
 
 (global-flycheck-mode t)
 
-
-(require 'ruby-mode)
-(require 'coffee-mode)
-(modify-syntax-entry (string-to-char "_") "w" ruby-mode-syntax-table)
 (modify-syntax-entry (string-to-char "_") "w" elixir-mode-syntax-table)
-(modify-syntax-entry (string-to-char "_") "w" coffee-mode-syntax-table)
 
 ;; JSX
 (require 'web-mode)
@@ -432,15 +372,7 @@ Repeated invocations toggle between the two most recently open buffers."
 (setq-default tab-width 2)
 
 ;; (add-hook 'enh-ruby-mode-hook (lambda () (setq evil-shift-width 2)))
-(add-hook 'ruby-mode-hook (lambda ()
-                            (setq evil-shift-width 2)
-                            (setq tab-width 2)))
-
 (add-hook 'elixir-mode-hook (lambda ()
-                            (setq evil-shift-width 2)
-                            (setq tab-width 2)))
-
-(add-hook 'coffee-mode-hook (lambda ()
                             (setq evil-shift-width 2)
                             (setq tab-width 2)))
 
@@ -451,7 +383,6 @@ Repeated invocations toggle between the two most recently open buffers."
 (add-hook 'html-mode-hook (lambda ()
                             (setq evil-shift-width 2)
                             (setq tab-width 2)))
-
 
 ;; adjust indents for web-mode to 2 spaces
 (defun my-web-mode-hook ()
@@ -468,14 +399,7 @@ Repeated invocations toggle between the two most recently open buffers."
 
 ;; Enable syntax highlighting in markdown
 (require 'mmm-mode)
-  (mmm-add-classes
-    '((markdown-rubyp
-      :submode ruby-mode
-      :face mmm-declaration-submode-face
-      :front "^\{:language=\"ruby\"\}[\n\r]+~~~"
-      :back "^~~~$")))
-
-  (mmm-add-classes
+    (mmm-add-classes
     '((markdown-elixirp
       :submode elixir-mode
       :face mmm-declaration-submode-face
@@ -489,14 +413,7 @@ Repeated invocations toggle between the two most recently open buffers."
       :front "^\{:language=\"javascript\"\}[\n\r]+~~~"
       :back "^~~~$")))
 
-  (mmm-add-classes
-    '((markdown-ruby
-      :submode ruby-mode
-      :face mmm-declaration-submode-face
-      :front "^~~~\s?ruby[\n\r]"
-      :back "^~~~$")))
-
-  (mmm-add-classes
+    (mmm-add-classes
     '((markdown-elixir
       :submode elixir-mode
       :face mmm-declaration-submode-face
@@ -514,10 +431,8 @@ Repeated invocations toggle between the two most recently open buffers."
 ;; (setq mmm-global-mode 't)
 (setq mmm-submode-decoration-level 0)
 
-(add-to-list 'mmm-mode-ext-classes-alist '(markdown-mode nil markdown-rubyp))
 (add-to-list 'mmm-mode-ext-classes-alist '(markdown-mode nil markdown-elixirp))
 (add-to-list 'mmm-mode-ext-classes-alist '(markdown-mode nil markdown-jsp))
-(add-to-list 'mmm-mode-ext-classes-alist '(markdown-mode nil markdown-ruby))
 (add-to-list 'mmm-mode-ext-classes-alist '(markdown-mode nil markdown-elixir))
 (add-to-list 'mmm-mode-ext-classes-alist '(markdown-mode nil markdown-js))
 
@@ -535,36 +450,6 @@ Repeated invocations toggle between the two most recently open buffers."
   "Resize window to equal split."
   (interactive)
   (window-set-resize-to 0.6))
-;; =============================================================================
-;; Python
-
-;; Python editing
-(require 'yasnippet)
-;; ;; Python mode settings
-;; (require 'python-mode)
-;; (add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
-(add-hook 'python-mode-hook 'yas-minor-mode)
-
-;; ;; Jedi settings
-(require 'jedi)
-;; It's also required to run "pip install --user jedi" and "pip
-;; install --user epc" to get the Python side of the library work
-;; correctly.
-;; With the same interpreter you're using.
-
-;; if you need to change your python intepreter, if you want to change it
-;; (setq jedi:server-command
-;;       '("python2" "/home/andrea/.emacs.d/elpa/jedi-0.1.2/jediepcserver.py"))
-
-(add-hook 'python-mode-hook
-	  (lambda ()
-	    (jedi:setup)
-	    (jedi:ac-setup)
-            (local-set-key (kbd "M-'") 'jedi:show-doc)
-            (local-set-key (kbd "M-SPC") 'jedi:complete)
-            (local-set-key (kbd "M-.") 'jedi:goto-definition)))
-
-;; =============================================================================
 
 ;; use xclip to copy/paste in emacs-nox
 (unless window-system
@@ -581,9 +466,11 @@ Repeated invocations toggle between the two most recently open buffers."
     (setq interprogram-paste-function 'xclip-paste-function)
     ))
 
-;; xterm mouse support
-(require 'mouse)
-(xterm-mouse-mode t)
+(require 'evil-terminal-cursor-changer)
+(setq evil-visual-state-cursor '("red" box))
+(setq evil-normal-state-cursor '("red" box))
+(setq evil-insert-state-cursor '("green" bar))
+(setq evil-emacs-state-cursor '("green" box))
 
 (setq custom-file (expand-file-name "customize.el" user-emacs-directory))
 (load custom-file)
