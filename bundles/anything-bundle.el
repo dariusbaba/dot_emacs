@@ -51,8 +51,7 @@
 (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
 (setq company-dabbrev-downcase nil)                  ; Do not convert to lowercase
 (setq company-selection-wrap-around t)               ; continue from top when reaching bottom
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-inf-ruby))
+
 ;; Hack to trigger candidate list on first TAB, then cycle through candiates with TAB
 (defvar tip-showing nil)
 (eval-after-load 'company
@@ -325,6 +324,7 @@ Repeated invocations toggle between the two most recently open buffers."
 ;; (load-theme 'tsdh-dark)
 ;; (load-theme 'tango-dark)
 ;; (load-theme 'junio)
+
 (load-theme 'molokai)
 
 (require 'pbcopy)
