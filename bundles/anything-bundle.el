@@ -153,9 +153,6 @@
   "gh" 'windmove-left
   "vs" 'split-window-right
   "hs" 'split-window-below
-  "m" 'jedi:show-doc
-  "SPC" 'jedi:complete
-  "'" 'jedi:goto-definition
   "s" 'save-some-buffers
   "x" 'smex)
 
@@ -371,7 +368,6 @@ Repeated invocations toggle between the two most recently open buffers."
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 
-;; (add-hook 'enh-ruby-mode-hook (lambda () (setq evil-shift-width 2)))
 (add-hook 'elixir-mode-hook (lambda ()
                             (setq evil-shift-width 2)
                             (setq tab-width 2)))
