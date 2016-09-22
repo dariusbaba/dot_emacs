@@ -16,6 +16,7 @@
      ("elpa" . "http://tromey.com/elpa/")
      ("melpa" . "http://melpa.milkbox.net/packages/")
      ("marmalade" . "http://marmalade-repo.org/packages/"))))
+ '(package-selected-packages (quote (package-build shut-up epl git commander f dash s)))
  '(projectile-project-root-files
    (quote
     ("rebar.config" "project.clj" "SConstruct" "pom.xml" "build.sbt" "build.gradle" "Gemfile" "requirements.txt" "package.json" "gulpfile.js" "Gruntfile.js" "bower.json" "composer.json" "Cargo.toml" "mix.exs" "README.md")))

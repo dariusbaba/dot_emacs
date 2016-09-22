@@ -146,6 +146,7 @@
   "w"  'kill-buffer
   "nn" 'neotree-toggle
   "nf" 'neotree-find
+  "new" 'neotree-create-node'
   "ni" 'neotree-hidden-file-toggle
   "gk" 'windmove-up
   "gj" 'windmove-down
@@ -472,5 +473,4 @@ Repeated invocations toggle between the two most recently open buffers."
 (load custom-file)
 
 (provide 'anything-bundle)
-
 ;;; anything-bundle.el ends here
