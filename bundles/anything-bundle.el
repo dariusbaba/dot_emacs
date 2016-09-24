@@ -464,6 +464,7 @@ Repeated invocations toggle between the two most recently open buffers."
     ))
 
 (require 'evil-terminal-cursor-changer)
+(evil-terminal-cursor-changer-activate)
 (setq evil-visual-state-cursor '("red" box))
 (setq evil-normal-state-cursor '("red" box))
 (setq evil-insert-state-cursor '("green" bar))
